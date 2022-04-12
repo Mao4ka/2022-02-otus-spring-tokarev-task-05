@@ -1,0 +1,12 @@
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/BookService.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/dao/BookDaoJdbc.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/dao/GenreDao.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/dao/Dao.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/dao/AuthorDao.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/dao/GenreDaoJdbc.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/Main.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/domain/Author.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/domain/Genre.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/domain/Book.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/dao/BookDao.java
+/Users/tokarev1-aa/workspace/otus-spring/task-05/src/main/java/ru/otus/dao/AuthorDaoJdbc.java
