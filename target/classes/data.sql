@@ -11,9 +11,7 @@ insert into Author (id, Author_name) values (4, 'author_04');
 insert into Author (id, Author_name) values (5, 'author_05');
 
 insert into Book (Id, Title, Genre_Id, Author_Id)
-values (
-        0,
-        'title_1',
+values (0,'title_1',
         (select id from Genre where Genre_name = 'genre_unknown'),
         (select id from Author where Author_name = 'author_unknown')
 );

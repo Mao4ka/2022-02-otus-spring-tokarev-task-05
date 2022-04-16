@@ -56,13 +56,22 @@ public class BookDaoJdbc implements BookDao {
         params.put("genreId", book.getGenreId());
         params.put("authorId", book.getAuthorId());
 
-        jdbc.update("insert into Author (id, title, genre_id, author_id) " +
+        jdbc.update("insert into Book (id, title, genre_id, author_id) " +
                 "values (:id, :title, :genreId, :authorId)", params);
     }
 
     @Override
     public void update(Book book) {
+        final Map<String, Object> params = new HashMap<>(1);
+        params.put("id", book.getId());
+        params.put("title", book.getTitle());
+        params.put("genreId", book.getGenreId());
+        params.put("authorId", book.getAuthorId());
 
+        jdbc.update("update Book set title = :title, " +
+                "genre_id = :genreId, " +
+                "author_id = :authorId " +
+                "where id = :id", params);
     }
 
     private static class BookMapper implements RowMapper<Book> {

@@ -1,12 +1,14 @@
 package ru.otus.domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-@RequiredArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
+@RequiredArgsConstructor
 public class Book {
     private final int id;
     private final String title;
