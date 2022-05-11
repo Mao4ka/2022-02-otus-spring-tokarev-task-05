@@ -22,13 +22,13 @@ public class BookDaoJdbc implements BookDao {
     }
 
     @Override
-    public int count() {
+    public long count() {
         Integer cnt = jdbc.getJdbcOperations().queryForObject("select count(*) from Book", Integer.class);
         return cnt == null ? 0 : cnt;
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         jdbc.update("delete from Book where id = :id", Map.of("id", id));
     }
 
@@ -38,7 +38,7 @@ public class BookDaoJdbc implements BookDao {
     }
 
     @Override
-    public Book getById(int id) {
+    public Book getById(long id) {
         return jdbc.queryForObject("select id, title, genre_id, author_id from Book where id = :id",
                 Map.of("id", id), new BookMapper());
     }
@@ -77,10 +77,10 @@ public class BookDaoJdbc implements BookDao {
     private static class BookMapper implements RowMapper<Book> {
         @Override
         public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
-            int id = rs.getInt("id");
+            long id = rs.getLong("id");
             String title = rs.getString("title");
-            int genreId = rs.getInt("genre_id");
-            int authorId = rs.getInt("author_id");
+            long genreId = rs.getLong("genre_id");
+            long authorId = rs.getLong("author_id");
 
             return new Book(id, title, genreId, authorId);
         }

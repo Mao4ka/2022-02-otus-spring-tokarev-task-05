@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Author {
-    private final int id;
+    private final long id;
     private final String authorName;
 }

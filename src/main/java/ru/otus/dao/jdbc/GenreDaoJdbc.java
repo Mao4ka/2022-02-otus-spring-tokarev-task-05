@@ -22,13 +22,13 @@ public class GenreDaoJdbc implements GenreDao {
     }
 
     @Override
-    public int count() {
+    public long count() {
         Integer cnt = jdbc.getJdbcOperations().queryForObject("select count(*) from Genre", Integer.class);
         return cnt == null ? 0 : cnt;
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         jdbc.update("delete from Genre where id = :id", Map.of("id", id));
     }
 
@@ -38,7 +38,7 @@ public class GenreDaoJdbc implements GenreDao {
     }
 
     @Override
-    public Genre getById(int id) {
+    public Genre getById(long id) {
         return jdbc.queryForObject("select id, genre_name from Genre where id = :id",
                 Map.of("id", id), new GenreMapper());
     }
@@ -69,7 +69,7 @@ public class GenreDaoJdbc implements GenreDao {
     private static class GenreMapper implements RowMapper<Genre> {
         @Override
         public Genre mapRow(ResultSet rs, int rowNum) throws SQLException {
-            int id = rs.getInt("id");
+            long id = rs.getLong("id");
             String genreName = rs.getString("genre_name");
             return new Genre(id, genreName);
         }

@@ -16,8 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Import(BookDaoJdbc.class)
 class BookDaoJdbcTest {
 
-    private static final int DEFAULT_RECORDS_COUNT = 1;
-    private static final int EXISTING_ID = 0;
+    private static final long DEFAULT_RECORDS_COUNT = 1;
+    private static final long EXISTING_ID = 0;
     private static final String EXISTING_BOOK_TITLE = "title_1";
 
     @Autowired
@@ -26,7 +26,7 @@ class BookDaoJdbcTest {
     @DisplayName("возвращать ожидаемое количество записей в БД")
     @Test
     void count() {
-        int booksCount = bookDao.count();
+        long booksCount = bookDao.count();
         assertThat(booksCount).isEqualTo(DEFAULT_RECORDS_COUNT);
     }
 
@@ -35,7 +35,7 @@ class BookDaoJdbcTest {
     void deleteById() {
         bookDao.deleteById(EXISTING_ID);
 
-        int booksCount = bookDao.count();
+        long booksCount = bookDao.count();
         assertThat(booksCount).isEqualTo(DEFAULT_RECORDS_COUNT - 1);
     }
 
@@ -44,7 +44,7 @@ class BookDaoJdbcTest {
     void deleteAll() {
         bookDao.deleteAll();
 
-        int booksCount = bookDao.count();
+        long booksCount = bookDao.count();
         assertThat(booksCount).isEqualTo(0);
     }
 
@@ -62,7 +62,7 @@ class BookDaoJdbcTest {
     void create() {
         bookDao.create(new Book(1, "title_2", 1, 2));
 
-        int booksCount = bookDao.count();
+        long booksCount = bookDao.count();
         assertThat(booksCount).isEqualTo(DEFAULT_RECORDS_COUNT + 1);
     }
 

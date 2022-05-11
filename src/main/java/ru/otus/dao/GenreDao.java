@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GenreDao extends Dao {
 
-    Genre getById(int id);
+    Genre getById(long id);
 
     List<Genre> getAll();
 

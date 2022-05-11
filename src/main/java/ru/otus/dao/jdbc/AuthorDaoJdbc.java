@@ -22,13 +22,13 @@ public class AuthorDaoJdbc implements AuthorDao {
     }
 
     @Override
-    public int count() {
+    public long count() {
         Integer cnt = jdbc.getJdbcOperations().queryForObject("select count(*) from Author", Integer.class);
         return cnt == null ? 0 : cnt;
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         jdbc.update("delete from Author where id = :id", Map.of("id", id));
     }
 
@@ -38,7 +38,7 @@ public class AuthorDaoJdbc implements AuthorDao {
     }
 
     @Override
-    public Author getById(int id) {
+    public Author getById(long id) {
         return jdbc.queryForObject("select id, author_name from Author where id = :id",
                 Map.of("id", id), new AuthorMapper());
     }
@@ -69,7 +69,7 @@ public class AuthorDaoJdbc implements AuthorDao {
     private static class AuthorMapper implements RowMapper<Author> {
         @Override
         public Author mapRow(ResultSet rs, int rowNum) throws SQLException {
-            int id = rs.getInt("id");
+            long id = rs.getLong("id");
             String authorName = rs.getString("author_name");
             return new Author(id, authorName);
         }

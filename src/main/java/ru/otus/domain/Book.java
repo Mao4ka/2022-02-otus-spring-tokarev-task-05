@@ -10,8 +10,8 @@ import lombok.Setter;
 @EqualsAndHashCode
 @RequiredArgsConstructor
 public class Book {
-    private final int id;
+    private final long id;
     private final String title;
-    private final int genreId;
-    private final int authorId;
+    private final long genreId;
+    private final long authorId;
 }

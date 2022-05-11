@@ -2,9 +2,9 @@ package ru.otus.dao;
 
 public interface Dao {
 
-    int count();
+    long count();
 
-    void deleteById(int id);
+    void deleteById(long id);
 
     void deleteAll();
 

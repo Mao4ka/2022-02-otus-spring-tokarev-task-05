@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Genre {
-    private final int id;
+    private final long id;
     private final String genreName;
 }

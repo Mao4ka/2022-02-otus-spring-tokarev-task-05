@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BookDao extends Dao {
 
-    Book getById(int id);
+    Book getById(long id);
 
     List<Book> getAll();
 
