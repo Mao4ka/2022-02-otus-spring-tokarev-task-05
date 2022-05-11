@@ -4,7 +4,7 @@ import ru.otus.domain.Genre;
 
 import java.util.List;
 
-public interface GenreDao extends Dao {
+public interface GenreDao {
 
     Genre getById(long id);
 
@@ -13,5 +13,11 @@ public interface GenreDao extends Dao {
     void create(Genre genre);
 
     void update(Genre genre);
+
+    long count();
+
+    void deleteById(long id);
+
+    void deleteAll();
 
 }

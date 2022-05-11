@@ -4,7 +4,7 @@ import ru.otus.domain.Author;
 
 import java.util.List;
 
-public interface AuthorDao extends Dao {
+public interface AuthorDao {
 
     Author getById(long id);
 
@@ -13,5 +13,11 @@ public interface AuthorDao extends Dao {
     void create(Author author);
 
     void update(Author author);
+
+    long count();
+
+    void deleteById(long id);
+
+    void deleteAll();
 
 }
