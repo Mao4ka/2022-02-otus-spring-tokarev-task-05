@@ -23,6 +23,8 @@ public class AuthorDaoJdbc implements AuthorDao {
 
     @Override
     public long count() {
+        //Integer cnt = jdbc.getJdbcOperations().queryForObject("select count(*) from Author", Integer.class);
+        //return cnt == null ? 0 : cnt;
         return jdbc.getJdbcOperations().queryForObject("select count(*) from Author", Long.class);
     }
 
@@ -34,7 +36,9 @@ public class AuthorDaoJdbc implements AuthorDao {
     @Override
     public void deleteAll() {
         jdbc.update("delete from Author", new HashMap<>());
+        //jdbc.update("delete from Author", Collections.singletonMap()); -- не взлетает
     }
+
 
     @Override
     public Author getById(long id) {
@@ -49,7 +53,7 @@ public class AuthorDaoJdbc implements AuthorDao {
 
     @Override
     public void create(Author author) {
-        final Map<String, Object> params = new HashMap<>(1);
+        Map<String, Object> params = new HashMap<>(1);
         params.put("id", author.getId());
         params.put("authorName", author.getAuthorName());
 
