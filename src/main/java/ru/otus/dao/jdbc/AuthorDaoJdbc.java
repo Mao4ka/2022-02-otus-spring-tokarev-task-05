@@ -23,8 +23,7 @@ public class AuthorDaoJdbc implements AuthorDao {
 
     @Override
     public long count() {
-        Integer cnt = jdbc.getJdbcOperations().queryForObject("select count(*) from Author", Integer.class);
-        return cnt == null ? 0 : cnt;
+        return jdbc.getJdbcOperations().queryForObject("select count(*) from Author", Long.class);
     }
 
     @Override
